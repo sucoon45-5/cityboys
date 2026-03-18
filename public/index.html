@@ -66,14 +66,48 @@
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #166534; /* green-800 */
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .gold-glow {
-            text-shadow: 0 0 20px rgba(255, 206, 77, 0.4);
+            text-shadow: 0 0 20px rgba(255, 206, 77, 0.6);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #FFCE4D 0%, #EAB308 100%);
+            box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(234, 179, 8, 0.4);
+            filter: brightness(1.05);
         }
 
         .progress-bar {
@@ -95,68 +129,69 @@
 
 <body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden selection:bg-green-600 selection:text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-[100] transition-all duration-500 glass-nav py-4" id="mainNav">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="fixed top-6 left-0 w-full z-[100] px-6" id="navWrapper">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full py-2 px-8 transition-all duration-500" id="mainNav">
             <div class="flex justify-between items-center">
                 <div class="flex-shrink-0">
                     <a href="index.html" class="block group">
                         <img src="images/logo.png" alt="City Boy Movement"
-                            class="h-16 w-auto group-hover:scale-105 transition-transform duration-300">
+                            class="h-12 w-auto group-hover:scale-110 transition-transform duration-500">
                     </a>
                 </div>
 
-                <div class="hidden lg:flex space-x-12 items-center">
-                    <a href="index.html" class="text-sm font-bold tracking-widest uppercase text-green-700">Home</a>
+                <div class="hidden lg:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-[11px] font-black tracking-[0.2em] uppercase text-green-800">Home</a>
 
                     <div class="relative group">
                         <button
-                            class="flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-700 hover:text-green-600 transition-colors">
+                            class="nav-link flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-gray-700 hover:text-green-800 transition-colors">
                             Leadership
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
                                     d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div
-                            class="absolute left-0 mt-4 w-56 bg-white rounded-3xl shadow-2xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 transform translate-y-2 group-hover:translate-y-0">
+                            class="absolute left-1/2 -translate-x-1/2 mt-4 w-60 bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-2xl py-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 border border-gray-100 transform translate-y-4 group-hover:translate-y-0">
                             <a href="grand-patron.html"
-                                class="block px-8 py-3 text-sm font-bold text-gray-600 hover:text-green-600 hover:bg-green-50 transition-all">Grand
+                                class="block px-8 py-3 text-[10px] font-black tracking-widest text-gray-600 hover:text-green-700 hover:bg-green-50/50 transition-all uppercase">Grand
                                 Patron</a>
                             <a href="patron.html"
-                                class="block px-8 py-3 text-sm font-bold text-gray-600 hover:text-green-600 hover:bg-green-50 transition-all">Patron</a>
+                                class="block px-8 py-3 text-[10px] font-black tracking-widest text-gray-600 hover:text-green-700 hover:bg-green-50/50 transition-all uppercase">Patron</a>
                             <a href="director-general.html"
-                                class="block px-8 py-3 text-sm font-bold text-gray-600 hover:text-green-600 hover:bg-green-50 transition-all">Director
+                                class="block px-8 py-3 text-[10px] font-black tracking-widest text-gray-600 hover:text-green-700 hover:bg-green-50/50 transition-all uppercase">Director
                                 General</a>
+                            <div class="mx-6 my-2 border-t border-gray-100"></div>
                             <a href="leadership.html"
-                                class="block px-8 py-3 text-sm font-bold text-gray-600 border-t border-gray-50 mt-2 hover:text-green-600 transition-all">Full
+                                class="block px-8 py-3 text-[10px] font-black tracking-widest text-green-800 hover:bg-green-50/50 transition-all uppercase">View Full
                                 Team</a>
                         </div>
                     </div>
 
                     <a href="about.html"
-                        class="text-sm font-bold tracking-widest uppercase text-gray-700 hover:text-green-600 transition-colors">About</a>
+                        class="nav-link text-[11px] font-black tracking-[0.2em] uppercase text-gray-700 hover:text-green-800 transition-colors">About</a>
                     <a href="achievements.html"
-                        class="text-sm font-bold tracking-widest uppercase text-gray-700 hover:text-green-600 transition-colors">Achievements</a>
+                        class="nav-link text-[11px] font-black tracking-[0.2em] uppercase text-gray-700 hover:text-green-800 transition-colors">Impact</a>
                     <a href="events.html"
-                        class="text-sm font-bold tracking-widest uppercase text-gray-700 hover:text-green-600 transition-colors">Events</a>
+                        class="nav-link text-[11px] font-black tracking-[0.2em] uppercase text-gray-700 hover:text-green-800 transition-colors">Events</a>
                     <a href="contact.html"
-                        class="text-sm font-bold tracking-widest uppercase text-gray-700 hover:text-green-600 transition-colors">Contact</a>
+                        class="nav-link text-[11px] font-black tracking-[0.2em] uppercase text-gray-700 hover:text-green-800 transition-colors">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-4 sm:gap-8">
+                <div class="flex items-center gap-4">
                     <a href="join.html?tab=register"
-                        class="px-6 sm:px-8 py-3 sm:py-4 bg-green-900 text-gold-400 rounded-full font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95">Join</a>
+                        class="px-8 py-3 btn-gold text-green-950 rounded-full font-black text-[10px] tracking-[0.2em] uppercase active:scale-95">Join Movement</a>
                     <button id="mobileMenuBtn"
-                        class="lg:hidden p-2 text-gray-700 hover:text-green-600 transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="lg:hidden p-2 text-gray-700 hover:text-green-800 transition-colors">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                 d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobileMenu"
@@ -780,13 +815,21 @@
 
         // Nav Scroll Effect
         window.addEventListener('scroll', () => {
+            const navWrapper = document.getElementById('navWrapper');
             const nav = document.getElementById('mainNav');
-            if (window.scrollY > 100) {
-                nav.classList.add('py-2', 'shadow-lg');
-                nav.classList.remove('py-4');
+            if (window.scrollY > 20) {
+                navWrapper.classList.remove('top-6');
+                navWrapper.classList.add('top-0', 'py-4');
+                nav.classList.add('shadow-2xl', 'bg-white/90');
+                nav.classList.remove('max-w-7xl');
+                nav.classList.add('max-w-full', 'rounded-none', 'border-none');
             } else {
-                nav.classList.add('py-4');
-                nav.classList.remove('py-2', 'shadow-lg');
+                navWrapper.classList.add('top-6');
+                navWrapper.classList.remove('top-0', 'py-4');
+                nav.classList.remove('shadow-2xl', 'bg-white/90');
+                nav.classList.add('max-w-7xl');
+                nav.classList.remove('max-w-full', 'rounded-full', 'border-none');
+                nav.classList.add('rounded-full');
             }
         });
 
