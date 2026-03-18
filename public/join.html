@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Movement | City Boy Movement</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-container {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-btn.active {
+            color: #164e63; /* green-900 */
+            border-bottom: 4px solid #FFCE4D; /* gold-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-['Inter'] selection:bg-green-600 selection:text-white">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070')] bg-cover bg-fixed">
+        <div class="absolute inset-0 bg-green-900/85 backdrop-blur-md"></div>
+        
+        <div class="max-w-4xl w-full space-y-8 relative z-10 bg-white p-6 md:p-12 rounded-[3rem] shadow-2xl overflow-hidden">
+            <div class="text-center mb-10">
+                <a href="index.html" class="inline-block">
+                    <img src="images/logo.png" alt="City Boy Movement" class="h-24 w-auto mx-auto mb-6 hover:scale-105 transition-transform">
+                </a>
+                <h2 class="text-4xl md:text-5xl font-black text-green-900 font-['Outfit']">Join the Movement</h2>
+                <p class="mt-4 text-gray-500 font-medium">Empowering the youth for a better Nigeria.</p>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-gray-100 mb-8">
+                <button id="loginTab" onclick="switchTab('login')" class="tab-btn active flex-1 py-4 text-lg font-bold tracking-widest uppercase text-gray-400 hover:text-green-900 transition-all">
+                    Login
+                </button>
+                <button id="registerTab" onclick="switchTab('register')" class="tab-btn flex-1 py-4 text-lg font-bold tracking-widest uppercase text-gray-400 hover:text-green-900 transition-all">
+                    Register
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginSection" class="form-container">
+                <form id="loginForm" class="space-y-6 max-w-md mx-auto">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 uppercase tracking-widest mb-2">Email or Phone Number</label>
+                            <input type="text" name="identifier" required class="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all" placeholder="08012345678">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 uppercase tracking-widest mb-2">Membership Password</label>
+                            <input type="password" name="password" required class="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all" placeholder="••••••••">
+                            <p class="mt-3 text-xs text-gray-400 italic">Default password is your surname (lowercase).</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-5 bg-green-900 text-gold-400 font-black text-xl rounded-2xl hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95 uppercase tracking-widest">
+                        Sign In
+                    </button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerSection" class="form-container hidden">
+                <form id="regForm" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Personal Info -->
+                    <div class="space-y-4">
+                        <h3 class="font-black text-green-900 border-b border-green-100 pb-2 uppercase tracking-widest text-sm">Personal Info</h3>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">First Name</label>
+                            <input type="text" name="first_name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Surname</label>
+                            <input type="text" name="surname" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Phone Number</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Email (Optional)</label>
+                            <input type="email" name="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <!-- Locality -->
+                    <div class="space-y-4">
+                        <h3 class="font-black text-green-900 border-b border-green-100 pb-2 uppercase tracking-widest text-sm">Demographics</h3>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">State of Origin</label>
+                            <select name="state_of_origin" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                                <option value="">Select State</option>
+                                <option value="Abia">Abia</option>
+                                <option value="Adamawa">Adamawa</option>
+                                <option value="Akwa Ibom">Akwa Ibom</option>
+                                <option value="Anambra">Anambra</option>
+                                <option value="Bauchi">Bauchi</option>
+                                <option value="Bayelsa">Bayelsa</option>
+                                <option value="Benue">Benue</option>
+                                <option value="Borno">Borno</option>
+                                <option value="Cross River">Cross River</option>
+                                <option value="Delta">Delta</option>
+                                <option value="Ebonyi">Ebonyi</option>
+                                <option value="Edo">Edo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Enugu">Enugu</option>
+                                <option value="FCT Abuja">FCT Abuja</option>
+                                <option value="Gombe">Gombe</option>
+                                <option value="Imo">Imo</option>
+                                <option value="Jigawa">Jigawa</option>
+                                <option value="Kaduna">Kaduna</option>
+                                <option value="Kano">Kano</option>
+                                <option value="Katsina">Katsina</option>
+                                <option value="Kebbi">Kebbi</option>
+                                <option value="Kogi">Kogi</option>
+                                <option value="Kwara">Kwara</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Nasarawa">Nasarawa</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Plateau">Plateau</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="Sokoto">Sokoto</option>
+                                <option value="Taraba">Taraba</option>
+                                <option value="Yobe">Yobe</option>
+                                <option value="Zamfara">Zamfara</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">LGA</label>
+                            <input type="text" name="lga" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Ward</label>
+                                <input type="text" name="ward" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Voting LGA</label>
+                                <input type="text" name="voting_lga" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Home Address</label>
+                            <textarea name="home_address" required rows="2" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 outline-none transition-all resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full py-5 bg-green-900 text-gold-400 font-black text-xl rounded-2xl hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95 uppercase tracking-widest">
+                            Complete Registration
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Overlay -->
+            <div id="successOverlay" class="hidden absolute inset-0 bg-white/98 z-50 flex flex-col items-center justify-center p-8 text-center animate-fade-in">
+                <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8 border-4 border-green-50">
+                    <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h2 class="text-4xl font-black text-gray-900 mb-4 font-['Outfit'] uppercase">Registration Successful!</h2>
+                <p class="text-xl text-gray-500 mb-10 max-w-md">Welcome to the movement. Your digital membership card is being generated.</p>
+                <div id="membershipCard" class="p-8 border-2 border-dashed border-green-200 rounded-[2rem] bg-green-50/30 max-w-sm w-full mx-auto">
+                    <p class="font-black text-green-900 mb-4 uppercase tracking-[0.2em]">Member ID: <span id="resId" class="text-green-600">---</span></p>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm inline-block">
+                        <img id="resQr" src="" alt="QR Code" class="w-48 h-48 bg-white">
+                    </div>
+                </div>
+                <button onclick="switchTab('login')" class="mt-12 px-12 py-4 bg-green-900 text-white rounded-full font-black uppercase tracking-widest hover:bg-green-800 transition-all shadow-lg active:scale-95">
+                    Go to Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            const loginSection = document.getElementById('loginSection');
+            const registerSection = document.getElementById('registerSection');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const successOverlay = document.getElementById('successOverlay');
+
+            successOverlay.classList.add('hidden');
+
+            if (tab === 'login') {
+                loginSection.classList.remove('hidden');
+                registerSection.classList.add('hidden');
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+            } else {
+                loginSection.classList.add('hidden');
+                registerSection.classList.remove('hidden');
+                loginTab.classList.remove('active');
+                registerTab.classList.add('active');
+            }
+        }
+
+        // Login Logic
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            alert('Authentication system placeholder triggered. Login logic being implemented.');
+        });
+
+        // Registration Logic
+        document.getElementById('regForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('/api/members/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById('resId').innerText = result.membership_id;
+                    document.getElementById('resQr').src = result.qr_code;
+                    document.getElementById('successOverlay').classList.remove('hidden');
+                } else {
+                    alert(result.msg || 'Registration failed');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Connection error. Please check your internet and try again.');
+            }
+        });
+
+        // Deep link handling (e.g. join.html?tab=register)
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialTab = urlParams.get('tab');
+        if (initialTab) switchTab(initialTab);
+    </script>
+</body>
+</html>

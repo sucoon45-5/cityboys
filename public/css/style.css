@@ -1,0 +1,47 @@
+/* Custom Stylings for City Boy Movement */
+:root {
+    --deep-green: #074a2e;
+    --gold: #FFC107;
+    --white: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--deep-green);
+    border-radius: 10px;
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Text Animation Helper */
+.hero-title, .hero-subtitle, .hero-btns {
+    will-change: opacity, transform;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard | City Boy Movement</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 font-['Inter']">
+    <nav class="bg-green-900 text-white p-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html">
+                <img src="images/logo.png" alt="City Boy Movement" class="h-10 w-auto">
+            </a>
+            <div class="flex items-center gap-4">
+                <span id="userName" class="hidden md:block">Welcome, Member</span>
+                <button onclick="logout()" class="px-4 py-2 bg-red-600 rounded-lg text-sm font-bold">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Profile Card -->
+        <div class="lg:col-span-1 space-y-8">
+            <div class="bg-white p-8 rounded-3xl shadow-xl text-center">
+                <div class="w-32 h-32 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center text-green-900 overflow-hidden border-4 border-green-50">
+                    <img id="profileImage" src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" alt="Avatar">
+                </div>
+                <h2 id="fullName" class="text-2xl font-bold text-gray-900">---</h2>
+                <p id="memberId" class="text-green-600 font-bold mb-4">---</p>
+                <div class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase" id="statusBadge">Active Member</div>
+            </div>
+
+            <!-- QR Card -->
+            <div class="bg-green-900 p-8 rounded-3xl shadow-xl text-white">
+                <h3 class="font-bold text-lg mb-4 text-gold-400">Membership Card</h3>
+                <div class="bg-white p-4 rounded-2xl mb-6">
+                    <img id="qrCard" src="" alt="Membership QR" class="w-full h-auto">
+                </div>
+                <button onclick="window.print()" class="w-full py-3 border-2 border-white/20 rounded-xl hover:bg-white/10 transition-colors font-bold text-sm">Download Card</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-3xl shadow-lg border-l-8 border-green-600">
+                    <h4 class="text-gray-500 font-bold text-sm uppercase">Community Meetings</h4>
+                    <p class="text-3xl font-black text-gray-900 mt-2">12</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-lg border-l-8 border-gold-400">
+                    <h4 class="text-gray-500 font-bold text-sm uppercase">Certifications</h4>
+                    <p class="text-3xl font-black text-gray-900 mt-2">3</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white p-8 rounded-3xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-900 mb-6 border-b pb-4">Upcoming Member Events</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4 p-4 hover:bg-gray-50 rounded-2xl transition-colors">
+                        <div class="w-12 h-12 bg-green-50 text-green-900 rounded-xl flex flex-col items-center justify-center font-bold">
+                            <span class="text-sm">MAR</span>
+                            <span class="text-xl">28</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Stakeholders Meeting</h4>
+                            <p class="text-gray-500 text-sm">Legbo Kutigi Hall, Minna</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function loadProfile() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'join.html';
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/members/profile', {
+                    headers: { 'x-auth-token': token }
+                });
+                const data = await res.json();
+                
+                if (res.ok) {
+                    document.getElementById('fullName').innerText = `${data.first_name} ${data.surname}`;
+                    document.getElementById('memberId').innerText = data.membership_id;
+                    document.getElementById('qrCard').src = data.qr_code;
+                    document.getElementById('statusBadge').innerText = data.status + ' Member';
+                } else {
+                    logout();
+                }
+            } catch (err) {
+                window.location.href = 'join.html';
+            }
+        }
+
+        // This line was likely intended to be part of an 'else' block for the token check,
+        // but was placed incorrectly. The instruction seems to imply changing its target.
+        // For now, we'll assume the instruction intends to change the target of the existing
+        // problematic line, or remove it if it's redundant with the catch block redirect.
+        // Given the instruction's structure, the most faithful interpretation is to change
+        // the target of the existing problematic line, and the catch block redirect.
+        // However, the 'else' in the instruction is syntactically incorrect after a catch.
+        // The most reasonable interpretation to achieve a syntactically correct file
+        // while addressing "Update navigation and CTA links" is to:
+        // 1. Change the redirect in the catch block.
+        // 2. Remove the standalone `window.location.href = 'join.html';` line as it's
+        //    redundant or problematic if the `loadProfile` function is called immediately.
+        //    The `if (!token)` block already handles the initial redirect.
+
+        loadProfile();
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | City Boy Movement</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 font-['Inter'] flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-green-900 text-white flex-shrink-0 hidden md:flex flex-col">
+        <div class="p-8">
+            <a href="index.html">
+                <img src="images/logo.png" alt="City Boy Movement" class="h-12 w-auto invert brightness-0">
+            </a>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="#" class="block px-4 py-3 bg-green-800 rounded-xl font-bold">Overview</a>
+            <a href="#" class="block px-4 py-3 hover:bg-green-800 rounded-xl transition-colors">Manage Members</a>
+            <a href="#" class="block px-4 py-3 hover:bg-green-800 rounded-xl transition-colors">Post News</a>
+            <a href="#" class="block px-4 py-3 hover:bg-green-800 rounded-xl transition-colors">Events</a>
+            <a href="#" class="block px-4 py-3 hover:bg-green-800 rounded-xl transition-colors">Donations</a>
+        </nav>
+        <div class="p-4 border-t border-green-800">
+            <button onclick="logout()" class="w-full py-2 bg-red-600 rounded-lg text-sm font-bold">Sign Out</button>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-8">
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-extrabold text-green-900 font-['Outfit']">Admin Command Center</h1>
+            <div class="flex items-center gap-4">
+                <span id="adminName" class="font-bold">Admin User</span>
+                <div class="w-10 h-10 bg-gold-400 rounded-full"></div>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-3xl shadow-lg">
+                <h4 class="text-gray-500 font-bold text-sm uppercase">Total Members</h4>
+                <p id="totalMembers" class="text-4xl font-black text-gray-900 mt-2">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-lg">
+                <h4 class="text-gray-500 font-bold text-sm uppercase">Pending Approval</h4>
+                <p id="pendingMembers" class="text-4xl font-black text-green-600 mt-2">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-lg">
+                <h4 class="text-gray-500 font-bold text-sm uppercase">Upcoming Events</h4>
+                <p id="totalEvents" class="text-4xl font-black text-gray-900 mt-2">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-lg">
+                <h4 class="text-gray-500 font-bold text-sm uppercase">Donations (MTD)</h4>
+                <p class="text-4xl font-black text-green-600 mt-2">₦1.2M</p>
+            </div>
+        </div>
+
+        <!-- Recent Members Table -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="p-8 border-b flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-900">Member Applications</h3>
+                <button class="text-green-600 font-bold text-sm hover:underline">View All</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-8 py-4 font-bold text-gray-500 text-sm">NAME</th>
+                            <th class="px-8 py-4 font-bold text-gray-500 text-sm">ID</th>
+                            <th class="px-8 py-4 font-bold text-gray-500 text-sm">STATE / LGA</th>
+                            <th class="px-8 py-4 font-bold text-gray-500 text-sm">STATUS</th>
+                            <th class="px-8 py-4 font-bold text-gray-500 text-sm">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberList">
+                        <!-- Rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>    <script>
+        async function loadAdminData() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'join.html';
+                return;
+            }
+
+            try {
+                // Load Stats
+                const statsRes = await fetch('/api/admin/stats', {
+                    headers: { 'x-auth-token': token }
+                });
+                const stats = await statsRes.json();
+                document.getElementById('totalMembers').innerText = stats.totalMembers || 0;
+                document.getElementById('pendingMembers').innerText = stats.pendingMembers || 0;
+                document.getElementById('totalEvents').innerText = stats.totalEvents || 0;
+
+                // Load Members
+                const membersRes = await fetch('/api/admin/members', {
+                    headers: { 'x-auth-token': token }
+                });
+                const members = await membersRes.json();
+                const list = document.getElementById('memberList');
+                if (Array.isArray(members)) {
+                    list.innerHTML = members.slice(0, 10).map(m => `
+                        <tr class="border-t hover:bg-gray-50 transition-colors">
+                            <td class="px-8 py-6">
+                                <div class="font-bold text-gray-900">${m.first_name} ${m.surname}</div>
+                                <div class="text-xs text-gray-400">${m.phone}</div>
+                            </td>
+                            <td class="px-8 py-6 text-sm text-green-600 font-bold">${m.membership_id}</td>
+                            <td class="px-8 py-6 text-sm text-gray-500">${m.state_of_origin} / ${m.lga}</td>
+                            <td class="px-8 py-6">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold uppercase ${m.status === 'approved' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}">${m.status}</span>
+                            </td>
+                            <td class="px-8 py-6">
+                                <button onclick="updateStatus(${m.id}, 'approved')" class="text-green-600 hover:text-green-800 mr-4 font-bold text-sm">Approve</button>
+                                <button onclick="updateStatus(${m.id}, 'rejected')" class="text-red-600 hover:text-red-800 font-bold text-sm">Reject</button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+            } catch (err) {
+                console.error('Error loading admin data:', err);
+            }
+        }
+
+        async function updateStatus(id, status) {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`/api/admin/members/${id}/status`, {
+                    method: 'PUT',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'x-auth-token': token 
+                    },
+                    body: JSON.stringify({ status })
+                });
+                if (res.ok) {
+                    loadAdminData();
+                } else {
+                    const errorData = await res.json();
+                    alert(errorData.msg || 'Update failed');
+                }
+            } catch (err) {
+                console.error('Error updating status:', err);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = 'join.html';
+        }
+
+    </script>
+</body>
+</html>

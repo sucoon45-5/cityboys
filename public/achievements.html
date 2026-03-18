@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presidential Achievements | City Boy Movement</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF9E5',
+                            200: '#FFEBB3',
+                            300: '#FFDC80',
+                            400: '#FFCE4D',
+                            500: '#FFC01A',
+                            600: '#E6A800',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="City Boy Movement" class="h-16 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html"
+                        class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                    <!-- Leadership Dropdown -->
+                    <div class="relative group">
+                        <button
+                            class="flex items-center gap-1 text-gray-700 hover:text-green-600 transition-colors font-medium">
+                            Leadership
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[60]">
+                            <a href="grand-patron.html"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Grand
+                                Patron</a>
+                            <a href="patron.html"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Patron</a>
+                            <a href="director-general.html"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Director
+                                General</a>
+                        </div>
+                    </div>
+                    <a href="about.html"
+                        class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                    <a href="index.html#projects"
+                        class="text-gray-700 hover:text-green-600 transition-colors font-medium">Projects</a>
+                    <a href="events.html"
+                        class="text-gray-700 hover:text-green-600 transition-colors font-medium">Events</a>
+                    <a href="join.html?tab=register"
+                        class="px-6 sm:px-8 py-3 sm:py-4 bg-green-900 text-gold-400 rounded-full font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95">Join</a>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:text-green-600 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[150] translate-x-full transition-transform duration-500 md:hidden">
+        <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-center mb-16">
+                <img src="images/logo.png" alt="City Boy Movement" class="h-12 w-auto">
+                <button id="closeMenuBtn" class="p-2 text-gray-700 hover:text-red-600 transition-colors">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 overflow-y-auto">
+                <a href="index.html" class="text-3xl font-black text-green-900 uppercase tracking-widest border-b border-gray-50 pb-4">Home</a>
+                <a href="about.html" class="text-3xl font-black text-gray-700 uppercase tracking-widest border-b border-gray-50 pb-4">About</a>
+                <a href="leadership.html" class="text-3xl font-black text-gray-700 uppercase tracking-widest border-b border-gray-50 pb-4">Leadership</a>
+                <a href="achievements.html" class="text-3xl font-black text-green-700 uppercase tracking-widest border-b border-gray-50 pb-4">Achievements</a>
+                <a href="events.html" class="text-3xl font-black text-gray-700 uppercase tracking-widest border-b border-gray-50 pb-4">Events</a>
+                <a href="contact.html" class="text-3xl font-black text-gray-700 uppercase tracking-widest border-b border-gray-50 pb-4">Contact</a>
+            </div>
+            <div class="mt-auto pt-10">
+                <a href="join.html?tab=register"
+                    class="block w-full px-8 py-6 bg-green-900 text-gold-400 rounded-full font-black text-center text-sm tracking-widest uppercase shadow-2xl shadow-green-900/20">Become
+                    a Member</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-green-900 overflow-hidden min-h-[75vh] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-900/95 via-green-900/80 to-transparent z-10"></div>
+            <img src="images/hero_abuja.jpg" alt="Presidential Achievements Hero" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="max-w-4xl">
+                <span class="inline-block px-4 py-2 bg-gold-400/20 backdrop-blur-md border border-gold-400/30 text-gold-400 rounded-full text-xs font-bold uppercase tracking-[0.3em] mb-8 animate-fade-in">National Milestone Report</span>
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-white mb-8 leading-tight animate-fade-in">
+                    The <span class="bg-gradient-to-r from-gold-300 to-yellow-500 bg-clip-text text-transparent">Impact</span> of Reform
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-10 animate-fade-in opacity-90 leading-relaxed max-w-2xl">
+                    A comprehensive overview of the strategic achievements and transformative policies driving Nigeria toward sustainable growth.
+                </p>
+                <div class="flex gap-4 animate-fade-in">
+                    <div class="h-1 w-20 bg-gold-500 mt-4 rounded-full"></div>
+                    <p class="text-gold-400 font-bold tracking-widest uppercase">Documenting the Renewed Hope Agenda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Macro-Economic Excellence -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-up order-2 lg:order-1 relative">
+                    <div class="aspect-[4/5] rounded-4xl overflow-hidden shadow-2xl relative">
+                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e" alt="Macro Economics" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-green-950/40 to-transparent"></div>
+                    </div>
+                    <!-- Stats Overlay -->
+                    <div class="absolute -bottom-10 -right-10 bg-green-50 p-10 rounded-3xl border border-green-100 shadow-xl hidden md:block">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-5xl font-black text-green-900 counter" data-target="4.23">0</span>
+                            <span class="text-2xl font-bold text-green-600">%</span>
+                        </div>
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Annual GDP Growth Target</p>
+                    </div>
+                </div>
+                <div class="reveal-up order-1 lg:order-2">
+                    <h2 class="text-green-600 font-bold uppercase tracking-widest mb-4">Macro-Economic Stability</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-green-900 mb-8 leading-tight">
+                        Resilient Growth in a Changing World
+                    </h3>
+                    <div class="space-y-8 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            Through disciplined fiscal management and strategic reforms, the administration has successfully steered the national economy toward a path of recovery and expansion.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                                <h4 class="text-3xl font-black text-green-900 mb-1">$42.03B</h4>
+                                <p class="text-sm font-bold text-green-600 uppercase">Foreign Reserves</p>
+                                <p class="text-sm text-gray-500 mt-2">Highest level since 2019, providing a robust buffer for currency stability.</p>
+                            </div>
+                            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                                <h4 class="text-3xl font-black text-green-900 mb-1">65%</h4>
+                                <p class="text-sm font-bold text-green-600 uppercase">Debt-to-Revenue</p>
+                                <p class="text-sm text-gray-500 mt-2">Significant reduction from 95%, freeing up capital for development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industrial Masterplan Section -->
+    <section class="py-24 bg-gray-900 text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gold-500/5 -skew-x-12 transform translate-x-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-12 mb-12 text-center reveal-up">
+                    <h2 class="text-gold-400 font-bold uppercase tracking-widest mb-4">The Industrial Masterplan</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">Catalyzing Manufacturing & Trade</h3>
+                </div>
+                <div class="lg:col-span-5 reveal-up">
+                    <div class="space-y-8">
+                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-gold-400/50 transition-all group">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="text-4xl font-black text-gold-400 counter" data-target="7.45">0</span>
+                                <span class="text-xl font-bold text-gold-400">%</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Industrial Growth Rate</h4>
+                            <p class="text-gray-400 leading-relaxed">Driven by robust gains in manufacturing and mining, fostering locally-produced excellence.</p>
+                        </div>
+                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-gold-400/50 transition-all group">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="text-4xl font-black text-gold-400 counter" data-target="44.3">0</span>
+                                <span class="text-xl font-bold text-gold-400">%</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Trade Surplus Rise</h4>
+                            <p class="text-gray-400 leading-relaxed">Marking five consecutive quarters of positive trade balance through strategic export focus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 reveal-up">
+                    <div class="bg-white/5 p-10 rounded-4xl border border-white/10 backdrop-blur-sm">
+                        <h4 class="text-3xl font-bold mb-6">Investment Milestones</h4>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-6">
+                                <div class="w-14 h-14 bg-gold-400/20 text-gold-400 rounded-2xl flex items-center justify-center shrink-0">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold text-gold-400">$50 Billion+</h5>
+                                    <p class="text-gray-300">New Foreign Direct Investment (FDI) commitments attracted across various sectors.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <div class="w-14 h-14 bg-gold-400/20 text-gold-400 rounded-2xl flex items-center justify-center shrink-0">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                </div>
+                                <div>
+                                    <h5 class="text-xl font-bold text-gold-400">$8 Billion+</h5>
+                                    <p class="text-gray-300">Unlocked in new oil and gas investments to power the nation's energy future.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human Capital & Social Impact -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-up">
+                    <h2 class="text-green-600 font-bold uppercase tracking-widest mb-4">Empowering Citizens</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-green-900 mb-8 leading-tight">
+                        Investing in Today, Securing Tomorrow
+                    </h3>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-10">
+                        The administration's focus on human capital ensures that growth is inclusive and results in direct positive impact on the lives of everyday Nigerians.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="p-8 bg-green-50 rounded-3xl border border-green-100 flex items-center gap-6 group hover:bg-green-100 transition-colors">
+                            <div class="w-16 h-16 bg-green-900 text-gold-400 rounded-2xl flex items-center justify-center shrink-0">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-green-900">Student Loan Scheme</h4>
+                                <p class="text-green-700">600,000+ beneficiaries with nearly N75 billion disbursed.</p>
+                            </div>
+                        </div>
+                        <div class="p-8 bg-green-50 rounded-3xl border border-green-100 flex items-center gap-6 group hover:bg-green-100 transition-colors">
+                            <div class="w-16 h-16 bg-green-900 text-gold-400 rounded-2xl flex items-center justify-center shrink-0">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-green-900">Poverty Exit Plan</h4>
+                                <p class="text-green-700">Lifting 50 million citizens out of poverty within the next decade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-up relative">
+                    <div class="aspect-square rounded-full overflow-hidden border-[15px] border-green-50 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef14603e80" alt="Students" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div class="absolute -top-10 -right-10 w-48 h-48 bg-gold-400/20 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 bg-green-900 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop"
+                alt="Movement Background" class="w-full h-full object-cover mix-blend-overlay opacity-20">
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 reveal-up">
+            <h2 class="text-gold-400 font-bold uppercase tracking-widest mb-6">Together We Build</h2>
+            <h3 class="text-4xl md:text-6xl font-black text-white mb-8">Be Part of the Success Story</h3>
+            <p class="text-xl text-green-50 mb-12 opacity-90 leading-relaxed">Join thousands of active citizens who are contributing to these national milestones through engagement and action.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="join.html?tab=register"
+                    class="w-full sm:w-auto px-12 py-5 bg-gold-400 text-green-950 rounded-full font-black text-lg hover:bg-gold-300 transition-all hover:scale-105 shadow-2xl shadow-gold-500/20">Become a Member</a>
+                <a href="about.html"
+                    class="w-full sm:w-auto px-12 py-5 border-2 border-white/30 text-white rounded-full font-black text-lg hover:bg-white hover:text-green-950 transition-all">Our Full Vision</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
+                <div>
+                    <img src="images/logo.png" alt="City Boy Movement" class="h-16 w-auto mb-8 brightness-0 invert">
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Empowering Nigerian youth through civic engagement, leadership development, and grassroots
+                        mobilization.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="index.html" class="hover:text-green-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-green-500 transition-colors">About Us</a></li>
+                        <li><a href="leadership.html" class="hover:text-green-500 transition-colors">Leadership</a></li>
+                        <li><a href="events.html" class="hover:text-green-500 transition-colors">Events</a></li>
+                        <li><a href="contact.html" class="hover:text-green-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold-400">Contact</h4>
+                    <ul class="space-y-6 text-gray-400">
+                        <li class="flex items-center gap-4">
+                            <span class="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </span>
+                            info@cityboymovement.ng
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-gold-400">Join Our Circle</h4>
+                    <p class="text-gray-400 mb-6 italic">Stay updated on national milestones and movement activities.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address"
+                            class="bg-white/5 border-none rounded-l-2xl px-6 py-4 w-full focus:ring-1 focus:ring-green-500 text-white">
+                        <button class="bg-green-600 px-6 py-4 rounded-r-2xl hover:bg-green-700 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-gray-900 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 City Boy Movement. Together, we change the narrative.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            ScrollTrigger.create({
+                trigger: counter,
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerText: target,
+                        duration: 3,
+                        snap: { innerText: 0.01 },
+                        ease: "power2.out"
+                    });
+                }
+            });
+        });
+
+        // Reveal Animations
+        gsap.utils.toArray('.reveal-up').forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power3.out"
+            });
+        });
+
+        // Initial Fade-ins
+        gsap.from('.animate-fade-in', {
+            opacity: 0,
+            y: 30,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        if(mobileMenuBtn && closeMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | City Boy Movement</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="City Boy Movement" class="h-16 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                    <!-- Leadership Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-gray-700 hover:text-green-600 transition-colors font-medium">
+                            Leadership
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[60]">
+                            <a href="grand-patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Grand Patron</a>
+                            <a href="patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Patron</a>
+                            <a href="director-general.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Director General</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-green-600 font-bold transition-colors font-medium">About</a>
+                    <a href="achievements.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Achievements</a>
+                    <a href="index.html#projects" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Projects</a>
+                    <a href="events.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Events</a>
+                    <a href="join.html?tab=register"
+                        class="px-6 sm:px-8 py-3 sm:py-4 bg-green-900 text-gold-400 rounded-full font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95">Join</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cinematic Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 bg-green-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-green-900/40 via-green-900/80 to-green-900 z-10"></div>
+            <img src="images/nigeria_politics_hero.png" alt="About Hero" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="max-w-3xl">
+                <span class="inline-block px-4 py-2 bg-gold-400 text-green-900 font-bold rounded-full text-sm mb-6 animate-fade-in uppercase tracking-widest">Our Story</span>
+                <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-tight animate-fade-in">
+                    The <span class="bg-gradient-to-r from-gold-400 to-yellow-500 bg-clip-text text-transparent">Heartbeat</span> of Progress
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in opacity-90 leading-relaxed">
+                    Transforming political participation into purposeful leadership. We are the architects of a more inclusive and empowered Nigeria.
+                </p>
+                <div class="flex flex-wrap gap-4 animate-fade-in">
+                    <a href="#pulse" class="px-8 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-900/40">Discover Our Pulse</a>
+                    <div class="flex items-center gap-2 px-6 py-4 text-white border border-white/20 rounded-full">
+                        <span class="w-2 h-2 bg-gold-400 rounded-full animate-pulse"></span>
+                        <span class="font-medium">Active Nationwide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Our Pulse" Section -->
+    <section id="pulse" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-up relative">
+                    <div class="aspect-square rounded-4xl overflow-hidden shadow-2xl">
+                        <img src="images/voters.png" alt="Citizens in Unity" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-green-50 rounded-4xl -z-10 border border-green-100 flex items-center justify-center p-10">
+                        <div class="text-center">
+                            <span class="block text-5xl font-black text-green-600">Unified</span>
+                            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">For Progress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h2 class="text-green-600 font-bold uppercase tracking-widest mb-4">Our Pulse</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-green-900 mb-8 leading-tight">
+                        Who We Are & What We Stand For
+                    </h3>
+                    <div class="space-y-8 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            City Boy Movement is built on the belief that a better society is achieved when citizens stand together with a shared vision. We are more than a political organization; we are a community-driven initiative dedicated to protecting civic rights and empowering every voice.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-800">Youth-Led Governance Advocacy</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-gold-100 text-gold-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-800">Grassroots Social Empowerment</p>
+                            </div>
+                        </div>
+                        <p>
+                            Our movement bridges the gap between the grassroots and policy-making levels, ensuring that sustainable opportunities and economic growth are accessible to all Nigerians, particularly the next generation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "The Vision" Section (Glassmorphic) -->
+    <section class="py-32 bg-green-950 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle cx="0" cy="0" r="40" fill="white" />
+                <circle cx="100" cy="100" r="40" fill="white" />
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Vision -->
+                <div class="bg-white/5 backdrop-blur-xl p-16 rounded-5xl border border-white/10 reveal-up h-full flex flex-col">
+                    <div class="w-16 h-16 bg-gold-400 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-green-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </div>
+                    <h2 class="text-gold-400 font-bold uppercase tracking-widest mb-6">Our Vision</h2>
+                    <p class="text-3xl md:text-5xl font-black leading-tight mb-8">
+                        Build a <span class="text-gold-400">united</span> and empowered youth population driving national development.
+                    </p>
+                    <p class="text-lg text-white/70 leading-relaxed mt-auto">
+                        We envision a Nigeria where every young citizen is informed, active, and a catalyst for political stability and economic transparency.
+                    </p>
+                </div>
+                <!-- Mission -->
+                <div class="bg-white/5 backdrop-blur-xl p-16 rounded-5xl border border-white/10 reveal-up h-full flex flex-col" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h2 class="text-green-400 font-bold uppercase tracking-widest mb-6">Our Mission</h2>
+                    <ul class="space-y-6 text-xl font-bold mb-8">
+                        <li class="flex gap-4">
+                            <span class="w-2 h-2 bg-gold-400 rounded-full mt-3"></span>
+                            Empower youth through practical skill acquisition.
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="w-2 h-2 bg-gold-400 rounded-full mt-3"></span>
+                            Facilitate civic education and awareness.
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="w-2 h-2 bg-gold-400 rounded-full mt-3"></span>
+                            Champion grassroots community development.
+                        </li>
+                    </ul>
+                    <p class="text-lg text-white/70 leading-relaxed mt-auto">
+                        We are dedicated to building a progressive society where voice matters and opportunity is accessible to all.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Values in Motion" Section -->
+    <section class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="text-green-600 font-bold uppercase tracking-widest mb-4">Core Values</h2>
+                <h3 class="text-4xl md:text-6xl font-black text-green-900 mb-6">Values in Motion</h3>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto">The principles that guide every action and initiative we take across Nigeria.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-5xl shadow-xl hover:shadow-2xl transition-all reveal-up overflow-hidden border border-gray-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images/human_dignity.png" alt="Human Dignity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-2xl font-bold text-green-900 mb-4">Human Dignity</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">Ensuring every citizen is respected, protected, and given a genuine chance to thrive through fairness and equal rights.</p>
+                        <div class="h-1 w-12 bg-green-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-5xl shadow-xl hover:shadow-2xl transition-all reveal-up overflow-hidden border border-gray-100" style="transition-delay: 0.1s;">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=2070" alt="Sustainable Development" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-2xl font-bold text-green-900 mb-4">Social Growth</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">Promoting long-term solutions that support economic stability and the responsible use of national resources.</p>
+                        <div class="h-1 w-12 bg-gold-400 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-5xl shadow-xl hover:shadow-2xl transition-all reveal-up overflow-hidden border border-gray-100" style="transition-delay: 0.2s;">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070" alt="Civic Participation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-2xl font-bold text-green-900 mb-4">Active Participation</h4>
+                        <p class="text-gray-600 leading-relaxed mb-6">Encouraging active involvement in governance and leadership development at all levels of society.</p>
+                        <div class="h-1 w-12 bg-green-900 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Civic Catalyst" CTA Section -->
+    <section class="py-32 bg-green-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="reveal-up max-w-4xl mx-auto">
+                <h2 class="text-green-600 font-bold uppercase tracking-widest mb-4 uppercase">Be the Catalyst</h2>
+                <h3 class="text-4xl md:text-6xl font-black text-green-900 mb-8 leading-tight">Make a Meaningful Contribution</h3>
+                <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+                    Your support helps City Boy Movement drive impactful initiatives, empower communities, and amplify the voices of everyday citizens. Together, we build a stronger Nigeria.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="join.html?tab=register" class="px-12 py-5 bg-green-900 text-white rounded-full font-bold text-lg hover:bg-green-800 transition-all shadow-2xl shadow-green-900/30">Join as a Volunteer</a>
+                    <a href="donate.html" class="px-12 py-5 bg-white text-green-900 border-2 border-green-900 rounded-full font-bold text-lg hover:bg-green-50 transition-all">Support Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="lg:col-span-1">
+                    <img src="images/logo.png" alt="City Boy Movement" class="h-12 w-auto mb-6 brightness-0 invert">
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        CityBoy Movement is a community-driven platform focused on awareness, engagement, and positive action.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Explore</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="index.html" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">About Us</a></li>
+                        <li><a href="index.html#gallery" class="hover:text-gold-400 transition-colors">Gallery</a></li>
+                        <li><a href="achievements.html" class="hover:text-gold-400 transition-colors">Achievements</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            info@cityboymovement.ng
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            162, Aminu Kano Crescent, Abuja-FCT, Nigeria
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address"
+                            class="bg-gray-800 border-none rounded-l-xl px-4 py-3 w-full focus:ring-1 focus:ring-green-500">
+                        <button class="bg-green-600 px-4 py-3 rounded-r-xl hover:bg-green-700 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 City Boy Movement. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF9E5', 200: '#FFEBB3', 300: '#FFDC80', 400: '#FFCE4D', 500: '#FFC01A', 600: '#E6A800',
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelectorAll('.reveal-up').forEach((item) => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: 'top 85%' },
+                y: 50, opacity: 0, duration: 1, ease: 'power3.out'
+            });
+        });
+        gsap.from('.animate-fade-in', { opacity: 0, y: 30, duration: 1.2, ease: 'power3.out', stagger: 0.2 });
+    </script>
+</body>
+
+</html>
