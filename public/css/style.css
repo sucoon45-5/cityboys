@@ -29,9 +29,11 @@ body {
 
 /* Glassmorphism Classes */
 .glass-nav {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 .glass-card {
@@ -41,7 +43,94 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Premium Navigation Components */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #166534; /* green-800 */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #FFCE4D 0%, #EAB308 100%);
+    box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(234, 179, 8, 0.4);
+    filter: brightness(1.05);
+}
+
+.gold-glow {
+    text-shadow: 0 0 20px rgba(255, 206, 77, 0.6);
+}
+
 /* Hero Text Animation Helper */
 .hero-title, .hero-subtitle, .hero-btns {
     will-change: opacity, transform;
+}
+
+/* Mini Navigation Refinements */
+.nav-mini {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.nav-link-mini {
+    font-size: 10px !important;
+    letter-spacing: 0.15em !important;
+}
+
+.btn-mini {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    font-size: 9px !important;
+}
+
+.logo-mini {
+    height: 2.5rem !important; /* h-10 */
+}
+
+/* Hero Section Refinements */
+.hero-small {
+    min-height: 55vh !important;
+}
+
+.hero-title-small {
+    font-size: 2rem !important; /* text-3xl approx */
+    line-height: 1.1 !important;
+}
+
+@media (min-width: 768px) {
+    .hero-title-small {
+        font-size: 3.5rem !important; /* text-5xl approx */
+    }
+}
+
+.hero-subtitle-small {
+    font-size: 1rem !important; /* text-base */
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle-small {
+        font-size: 1.125rem !important; /* text-lg */
+    }
 }

@@ -17,59 +17,91 @@
 
 <body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+    <div class="fixed top-6 left-0 w-full z-[100] px-6" id="navWrapper">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full py-2 px-8 transition-all duration-500 nav-mini" id="mainNav">
+            <div class="flex justify-between items-center h-12">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="City Boy Movement" class="h-16 w-auto">
+                    <a href="index.html" class="group">
+                        <img src="images/logo.png" alt="City Boy Movement" class="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity logo-mini">
                     </a>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-                    <!-- Leadership Dropdown -->
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Home</a>
                     <div class="relative group">
-                        <button class="flex items-center gap-1 text-gray-700 hover:text-green-600 transition-colors font-medium">
-                            Leadership
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="nav-link flex items-center gap-1 text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">
+                            Leaders
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[60]">
-                            <a href="grand-patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Grand Patron</a>
-                            <a href="patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Patron</a>
-                            <a href="director-general.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Director General</a>
+                        <div class="absolute left-0 mt-4 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[110] translate-y-2 group-hover:translate-y-0">
+                            <a href="grand-patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Grand Patron</a>
+                            <a href="patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Patron</a>
+                            <a href="director-general.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Director General</a>
                         </div>
                     </div>
-                    <a href="about.html" class="text-green-600 font-bold transition-colors font-medium">About</a>
-                    <a href="achievements.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Achievements</a>
-                    <a href="index.html#projects" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Projects</a>
-                    <a href="events.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Events</a>
-                    <a href="join.html?tab=register"
-                        class="px-6 sm:px-8 py-3 sm:py-4 bg-green-900 text-gold-400 rounded-full font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase hover:bg-green-800 transition-all shadow-xl shadow-green-900/20 active:scale-95">Join</a>
+                    <a href="about.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest border-b-2 border-green-800 pb-1 nav-link-mini">About</a>
+                    <a href="achievements.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Victory</a>
+                    <a href="events.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Pulse</a>
+                    <a href="contact.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Connect</a>
+                    <a href="join.html?tab=register" class="btn-gold text-green-950 px-6 py-2.5 rounded-full font-black text-[9px] tracking-[0.2em] uppercase active:scale-95 btn-mini">Join Movement</a>
                 </div>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-green-900 hover:text-green-700 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white/98 backdrop-blur-2xl z-[150] translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="px-8 py-12 h-full flex flex-col">
+            <div class="flex justify-between items-center mb-16">
+                <img src="images/logo.png" alt="City Boy Movement" class="h-10 w-auto">
+                <button id="closeMenuBtn" class="p-3 bg-gray-50 rounded-full text-gray-700 hover:text-red-600 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6">
+                <a href="index.html" class="text-4xl font-black text-green-900 uppercase tracking-widest hover:text-green-700 transition-colors">Home</a>
+                <a href="about.html" class="text-4xl font-black text-green-700 uppercase tracking-widest transition-colors">About</a>
+                <a href="achievements.html" class="text-4xl font-black text-gray-800 uppercase tracking-widest hover:text-green-700 transition-colors">Achievements</a>
+                <a href="events.html" class="text-4xl font-black text-gray-800 uppercase tracking-widest hover:text-green-700 transition-colors">Events</a>
+                <a href="contact.html" class="text-4xl font-black text-gray-800 uppercase tracking-widest hover:text-green-700 transition-colors">Contact</a>
+            </div>
+            <div class="mt-auto space-y-6">
+                <a href="join.html?tab=register" class="block w-full py-6 bg-green-900 text-gold-400 rounded-2xl font-black text-center text-lg tracking-widest uppercase shadow-2xl">Join The Movement</a>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Cinematic Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-20 bg-green-900 overflow-hidden">
+    <section class="relative min-h-[60vh] flex items-center pt-20 bg-green-900 overflow-hidden hero-small">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-green-900/40 via-green-900/80 to-green-900 z-10"></div>
             <img src="images/nigeria_politics_hero.png" alt="About Hero" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div class="max-w-3xl">
-                <span class="inline-block px-4 py-2 bg-gold-400 text-green-900 font-bold rounded-full text-sm mb-6 animate-fade-in uppercase tracking-widest">Our Story</span>
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-tight animate-fade-in">
+                <span class="inline-block px-3 py-1.5 bg-gold-400 text-green-900 font-bold rounded-full text-[10px] mb-6 animate-fade-in uppercase tracking-widest">Our Story</span>
+                <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight animate-fade-in hero-title-small">
                     The <span class="bg-gradient-to-r from-gold-400 to-yellow-500 bg-clip-text text-transparent">Heartbeat</span> of Progress
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in opacity-90 leading-relaxed">
+                <p class="text-lg md:text-xl text-gray-200 mb-8 animate-fade-in opacity-90 leading-relaxed hero-subtitle-small">
                     Transforming political participation into purposeful leadership. We are the architects of a more inclusive and empowered Nigeria.
                 </p>
                 <div class="flex flex-wrap gap-4 animate-fade-in">
-                    <a href="#pulse" class="px-8 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-900/40">Discover Our Pulse</a>
-                    <div class="flex items-center gap-2 px-6 py-4 text-white border border-white/20 rounded-full">
+                    <a href="#pulse" class="px-6 py-3 bg-green-600 text-white rounded-full font-bold text-sm hover:bg-green-700 transition-all shadow-lg shadow-green-900/40">Discover Our Pulse</a>
+                    <div class="flex items-center gap-2 px-5 py-3 text-white border border-white/20 rounded-full text-sm">
                         <span class="w-2 h-2 bg-gold-400 rounded-full animate-pulse"></span>
                         <span class="font-medium">Active Nationwide</span>
                     </div>
@@ -293,22 +325,8 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            100: '#FFF9E5', 200: '#FFEBB3', 300: '#FFDC80', 400: '#FFCE4D', 500: '#FFC01A', 600: '#E6A800',
-                        }
-                    },
-                    borderRadius: {
-                        '4xl': '2rem',
-                        '5xl': '3rem',
-                    }
-                }
-            }
-        }
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.reveal-up').forEach((item) => {
             gsap.from(item, {

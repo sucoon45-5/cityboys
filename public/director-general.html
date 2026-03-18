@@ -16,60 +16,68 @@
 </head>
 
 <body class="bg-white text-gray-900 font-['Inter'] overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+    <div class="fixed top-6 left-0 w-full z-[100] px-6" id="navWrapper">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full py-2 px-8 transition-all duration-500 nav-mini" id="mainNav">
+            <div class="flex justify-between items-center h-12">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="City Boy Movement" class="h-16 w-auto">
+                    <a href="index.html" class="group">
+                        <img src="images/logo.png" alt="City Boy Movement" class="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity logo-mini">
                     </a>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-                    <!-- Leadership Dropdown -->
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Home</a>
                     <div class="relative group">
-                        <button class="flex items-center gap-1 text-green-600 font-bold transition-colors font-medium">
-                            Leadership
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="nav-link flex items-center gap-1 text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini current">
+                            Leaders
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[60]">
-                            <a href="grand-patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Grand Patron</a>
-                            <a href="patron.html" class="block px-6 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Patron</a>
-                            <a href="director-general.html" class="block px-6 py-3 text-sm text-green-600 font-bold bg-green-50 transition-colors">Director General</a>
+                        <div class="absolute left-0 mt-4 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[110] translate-y-2 group-hover:translate-y-0">
+                            <a href="grand-patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Grand Patron</a>
+                            <a href="patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Patron</a>
+                            <a href="director-general.html" class="block px-8 py-3 text-[10px] font-bold text-green-800 bg-green-50 transition-colors uppercase tracking-wider border-b-2 border-green-800">Director General</a>
+                            <div class="mx-6 my-2 border-t border-gray-100"></div>
+                            <a href="leadership.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">View Full Team</a>
                         </div>
                     </div>
-                    <a href="about.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-                    <a href="achievements.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Achievements</a>
-                    <a href="index.html#projects" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Projects</a>
-                    <a href="events.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Events</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
-                    <a href="join.html?tab=register"
-                        class="bg-green-900 text-white px-6 py-2.5 rounded-full hover:bg-green-800 transition-all shadow-lg shadow-green-900/20">Join Now</a>
+                    <a href="about.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">About</a>
+                    <a href="achievements.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Victory</a>
+                    <a href="events.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Pulse</a>
+                    <a href="contact.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Connect</a>
+                    <a href="join.html?tab=register" class="btn-gold text-green-950 px-6 py-2.5 rounded-full font-black text-[9px] tracking-[0.2em] uppercase active:scale-95 btn-mini">Join Movement</a>
                 </div>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-green-900 hover:text-green-700 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 bg-green-900 overflow-hidden min-h-[75vh] flex items-center">
+    <section class="relative pt-32 pb-20 bg-green-900 overflow-hidden flex items-center hero-small">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-green-900/95 via-green-900/80 to-transparent z-10"></div>
             <img src="images/director-general.jpg" alt="Director General Hero" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div class="max-w-3xl">
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-tight animate-fade-in">
+                <h1 class="font-black text-white mb-6 leading-tight animate-fade-in hero-title-small">
                     National <span class="bg-gradient-to-r from-gold-400 to-yellow-500 bg-clip-text text-transparent">DG</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in opacity-90 leading-relaxed">
+                <p class="text-gray-200 mb-8 animate-fade-in opacity-90 leading-relaxed hero-subtitle-small">
                     Hon. Shoga Francis Oluwatosin — A Visionary Leader, Procurement Expert, and Catalyst for Youth Engagement.
                 </p>
                 <div class="flex gap-4 animate-fade-in">
-                    <div class="h-1 w-20 bg-gold-500 mt-4 rounded-full"></div>
-                    <p class="text-gold-400 font-bold tracking-widest uppercase">The Engine of Renewed Hope</p>
+                    <div class="h-1 w-20 bg-gold-500 mt-2 rounded-full"></div>
+                    <p class="text-gold-400 font-bold tracking-widest uppercase text-[10px]">The Engine of Renewed Hope</p>
                 </div>
             </div>
         </div>

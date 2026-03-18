@@ -19,6 +19,49 @@
     </style>
 </head>
 <body class="bg-gray-50 font-['Inter'] selection:bg-green-600 selection:text-white">
+    <!-- Navigation -->
+    <div class="fixed top-6 left-0 w-full z-[100] px-6" id="navWrapper">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full py-2 px-8 transition-all duration-500 nav-mini" id="mainNav">
+            <div class="flex justify-between items-center h-12">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="group">
+                        <img src="images/logo.png" alt="City Boy Movement" class="h-8 md:h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity logo-mini">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Home</a>
+                    <div class="relative group">
+                        <button class="nav-link flex items-center gap-1 text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">
+                            Leaders
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-4 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-[110] translate-y-2 group-hover:translate-y-0">
+                            <a href="grand-patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Grand Patron</a>
+                            <a href="patron.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Patron</a>
+                            <a href="director-general.html" class="block px-8 py-3 text-[10px] font-bold text-gray-700 hover:text-green-800 hover:bg-green-50 transition-colors uppercase tracking-wider">Director General</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">About</a>
+                    <a href="achievements.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Victory</a>
+                    <a href="events.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Pulse</a>
+                    <a href="contact.html" class="nav-link text-green-900 font-bold text-[10px] uppercase tracking-widest nav-link-mini">Connect</a>
+                    <a href="join.html" class="btn-gold text-green-950 px-6 py-2.5 rounded-full font-black text-[10px] tracking-[0.2em] uppercase active:scale-95 btn-mini border-b-2 border-green-800 pb-1">Join Movement</a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 text-green-900 hover:text-green-700 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
     <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070')] bg-cover bg-fixed">
         <div class="absolute inset-0 bg-green-900/85 backdrop-blur-md"></div>
         

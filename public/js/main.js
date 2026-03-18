@@ -79,4 +79,45 @@ document.addEventListener('DOMContentLoaded', () => {
             onEnter: updateCounter
         });
     });
+    // Nav Scroll Effect
+    window.addEventListener('scroll', () => {
+        const navWrapper = document.getElementById('navWrapper');
+        const nav = document.getElementById('mainNav');
+        if (!navWrapper || !nav) return;
+        
+        if (window.scrollY > 20) {
+            navWrapper.classList.remove('top-6');
+            navWrapper.classList.add('top-0', 'py-4');
+            nav.classList.add('shadow-2xl', 'bg-white/95');
+            nav.classList.remove('max-w-7xl');
+            nav.classList.add('max-w-full', 'rounded-none', 'border-none');
+        } else {
+            navWrapper.classList.add('top-6');
+            navWrapper.classList.remove('top-0', 'py-4');
+            nav.classList.remove('shadow-2xl', 'bg-white/95');
+            nav.classList.add('max-w-7xl');
+            nav.classList.remove('max-w-full', 'rounded-full', 'border-none');
+            nav.classList.add('rounded-full');
+        }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (mobileMenuBtn && closeMenuBtn && mobileMenu) {
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    }
 });
